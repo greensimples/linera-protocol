@@ -1,0 +1,18 @@
+const socket = new WebSocket('ws://api.linera.com');
+
+socket.onopen = () => {
+    console.log('Connected to the tracking server');
+};
+
+socket.onmessage = (event) => {
+    const trackingData = JSON.parse(event.data);
+    updateTrackingUI(trackingData);
+};
+
+socket.onerror = (error) => {
+    console.error('Connection error:', error);
+};
+
+function updateTrackingUI(data) {
+    document.getElementById('tracking-info').innerText = `Current location: ${data.location}`;
+}

@@ -1,0 +1,8 @@
+tracking:
+  server: "ws://api.linera.com"
+  settings:
+    reconnect: true
+    interval: 5000 # in milliseconds
+  ui:
+    element_id: "tracking-info"
+    message: "Current location: "
